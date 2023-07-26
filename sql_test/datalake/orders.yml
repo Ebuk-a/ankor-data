@@ -1,0 +1,19 @@
+models:
+  - name: orders
+    description: >
+      Table containing all orders submitted on Ankorstore. An order is received by a brand and submitted by a particular retailer
+    columns:
+      - name: id_order
+        description: "Unique key of the table, identifier of the order"
+      - name: id_retailer
+        description: "identifier of the retailer"
+      - name: id_brand
+        description: "identifier of the brand"      
+      - name: dt_submitted
+        description: "Date of the order submission by the retailer"
+      - name: order_amount
+        description: "Amount of the order"
+      - name: discount_amount
+        description: "If the retailer subscribed to Ankorstore offer programm, amount of the discount applied"
+      - name: cd_currency
+        description: "Code of the order currency (ex: EUR, GBP)"

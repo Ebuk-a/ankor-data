@@ -1,0 +1,93 @@
+version: 2
+
+models:
+  - name: dtm_revenue_daily
+    description: >
+      Table contains the company revenue per day, retailer country group and order type for analytics purposes
+    columns:
+      - name: id
+        description: "Unique key of the table"
+        tests:
+          - unique
+          - not_null
+
+      - name: dt_day
+        description: "date of the day"
+
+      - name: retailer_country_group
+        description: "Country group of the retailer"
+
+      - name: order_type
+        description: "the order type indicates if it is a new or repeat order from the retailer (per brand)"
+        tests:
+          - accepted_values:
+              values: ['new', 'repeat reorder', 'repeat discovery']
+      
+      - name: revenue
+        description: "Revenue generated for the given day, retailer country and order type"
+
+
+  - name: retailer_subscription_period_metrics
+    description: >
+      Table contains, for each retailer, the total  discounts per period.
+    columns:
+      - name: id_period
+        description: "Unique key of the table"
+        tests:
+          - unique
+          - not_null
+
+      - name: id_retailer
+        description: "identifier of the retailer"
+
+      - name: dt_period_start
+        description: "date of the subscription period start"
+
+      - name: dt_period_end
+        description: "date of the subscription period end"
+
+      - name: period_discount
+        description: "sum of discount amount applied to the orders submitted by the retailer between dt_period_start and dt_period_end"
+
+
+  - name: retailer_subscription_metrics
+    description: >
+      Table contains, for each brand, the total discounts, the average discounts per period and the last period discounts.
+    columns:
+      - name: id_retailer
+        description: "Unique key of the table, identifies of the retailer"
+        tests:
+          - unique
+          - not_null
+
+      - name: total_subscription_discount
+        description: "discount amount applied to the orders submitted by the retailer over all its subscription periods"
+
+      - name: avg_period_subscription_discount
+        description: "average discount amount per subscription period"
+
+      - name: last_period_subscription_discount
+        description: "discount amount of the last subscription period of the retailer"
+
+      - name: dt_last_period_start
+        description: "date of the latest subscription period start"
+  
+  
+  - name: orders_shipping
+    description: >
+      Table contains date order was place dt_submitted and estimated delivery date dt_estimated_delivered.
+    columns:
+      - name: id_order
+        description: "Unique key of the table, identifier of the order"
+        tests:
+          - unique
+          - not_null
+          
+      - name: dt_submitted
+        description: "Date of the order submission by the retailer"
+
+      - name: nb_brand_shipping_days
+        description: "Shipping time of the brand selling the order "
+
+      - name: dt_estimated_delivered
+        description: "Estimated date of the delivering of the order to the retailer location, taking into account the brand shipping time and the bank holidays"

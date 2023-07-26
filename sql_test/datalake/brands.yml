@@ -1,0 +1,15 @@
+models:
+  - name: retailers
+    description: >
+      Table containing all brands selling on Ankorstore. Brands are Ankorstore suppliers. 
+      They are small to medium-size companies (we don't work with Nike for instance), that have high quality products to sell.
+      They upload their products on our website, to make them visible to our retailers.
+    columns:
+      - name: id_brand
+        description: "Unique key of the table, identifier of the brand"
+      - name: country
+        description: "Country of the brand"
+      - name: country_group
+        description: "Country group of the brand"
+      - name: nb_brand_shipping_days
+        description: "Average number of days necessary to ship an order, declared by the brand"

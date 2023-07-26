@@ -1,0 +1,14 @@
+models:
+  - name: retailer_subscription_periods
+    description: >
+      Table containing all subscription periods of retailers subscribed to Ankorstore offer program.
+      The default programm is monthly, so subscription periods have 1-month duration.
+    columns:
+      - name: id_retailer
+        description: "Identifier of the retailer"
+      - name: dt_subscription_start
+        description: " date of the subscription start"
+      - name: dt_period_start
+        description: " date of the subscription period start"
+      - name: dt_period_end
+        description: " date of the subscription period end"

@@ -1,0 +1,13 @@
+models:
+  - name: retailers
+    description: >
+      Table containing all retailers registered on Ankorstore. Retailers are Ankorstore customers.
+      They are independant shop owners (concept stores, grocery stores…), who browse ankorstore.com and buy 1 or several brands.
+      They then re-sell these brands in their shops.
+    columns:
+      - name: id_retailer
+        description: "Unique key of the table, identifier of the retailer"
+      - name: country
+        description: "Country of the retailer"
+      - name: country_group
+        description: "Country group of the retailer"

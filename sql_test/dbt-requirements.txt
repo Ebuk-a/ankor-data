@@ -1,0 +1,4 @@
+# Place dbt requirements here.
+jsonschema==4.17.3 
+dbt-core==1.5
+dbt-postgres==1.5

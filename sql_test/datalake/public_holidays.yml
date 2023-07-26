@@ -1,0 +1,11 @@
+models:
+  - name: public_holidays
+    description: >
+      Table containing public holidays on all countries between 2020 and 2025
+    columns:
+      - name: holiday_name
+        description: "Name of the public holiday"
+      - name: country
+        description: "Country of the public holiday"
+      - name: dt_day
+        description: "Date of the public holiday"
