@@ -3,9 +3,9 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import text
 
-postgres_engine = sqlalchemy.create_engine('postgresql://<username>:<password>@localhost:5432/postgres', connect_args={'connect_timeout': 10}, echo=False)
+postgres_engine = sqlalchemy.create_engine('postgresql://airflow:airflow@localhost:5432/postgres', connect_args={'connect_timeout': 10}, echo=False)
 
-def get_api_data():
+def getAPIData():
     url= 'http://127.0.0.1:8000/myendpoint'
     response = requests.get(url)
     data = response.json()
@@ -57,7 +57,7 @@ def writeToDW(dim_products:pd.DataFrame = readCSV()) -> pd.DataFrame:
 
 def runETLProcess():
     print("Calling API data...")
-    get_api_data()
+    getAPIData()
 
     print('reading CSV and writing to database...')
     dim_products_head= writeToDW()
